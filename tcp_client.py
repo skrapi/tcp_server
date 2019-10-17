@@ -26,6 +26,9 @@ while True:
   return_data = s.recv(4)
 
   print(return_data.decode('utf-8'))
+  
+  if raw_input == 'close':
+    break
 
-
+print('Closed')
 s.close()
