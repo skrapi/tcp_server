@@ -16,7 +16,6 @@ def handle_client_connection(client_socket):
     request = client_socket.recv(1024)
     print('Received {}'.format(request.decode('utf-8')))
     client_socket.send('ACK!'.encode('utf-8'))
-    client_socket.close()
 
 while True:
     client_sock, address = server.accept()
