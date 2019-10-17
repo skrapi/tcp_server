@@ -13,10 +13,16 @@ print('Listening on {}:{}'.format(bind_ip, bind_port))
 
 
 def handle_client_connection(client_socket):
+  while True:
     request = client_socket.recv(1024)
-    print('Received {}'.format(request))
-    client_socket.send(b'ACK!')
-    client_socket.close()
+    print('Received {}'.format(request.decode('utf-8')))
+    client_socket.send('ACK!'.encode('utf-8'))
+
+    if request == 'close':
+      client_socket.close()
+      break
+  
+
 
 while True:
     client_sock, address = server.accept()
