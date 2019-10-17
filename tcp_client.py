@@ -27,7 +27,7 @@ while True:
 
   print(return_data.decode('utf-8'))
   
-  if raw_input == 'close':
+  if return_data == 'CLSE':
     break
 
 print('Closed')
