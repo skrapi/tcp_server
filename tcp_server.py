@@ -16,7 +16,7 @@ def handle_client_connection(client_socket):
   while True:
     request = client_socket.recv(1024)
     print('Received {}'.format(request.decode('utf-8')))
-    if request == 'close':      
+    if request[:5] == 'close':      
       client_socket.send('CLSE'.encode('utf-8'))
       client_socket.close()
       break
