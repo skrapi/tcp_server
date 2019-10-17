@@ -5,6 +5,7 @@ bind_ip = '178.128.160.227'
 bind_port = 9999
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server.bind((bind_ip, bind_port))
 server.listen(5)  # max backlog of connections
 
@@ -14,7 +15,7 @@ print('Listening on {}:{}'.format(bind_ip, bind_port))
 def handle_client_connection(client_socket):
     request = client_socket.recv(1024)
     print('Received {}'.format(request))
-    client_socket.send('ACK!')
+    client_socket.send(b'ACK!')
     client_socket.close()
 
 while True:
