@@ -1,7 +1,7 @@
 import socket
 import threading
 
-bind_ip = '178.128.'
+bind_ip = '178.128.160.227'
 bind_port = 9999
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
